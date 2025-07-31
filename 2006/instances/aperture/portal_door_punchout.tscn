@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bsdlw7llr2s7q"]
+
+[node name="PortalDoorPunchout" type="CSGCombiner3D"]
+operation = 2
+
+[node name="frame" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, -9.59262e-08, -3.21875)
+use_collision = true
+radius = 2.0
+height = 16.6875
+sides = 32
+
+[node name="CSGBox3D" type="CSGBox3D" parent="frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1.9502)
+operation = 2
+size = Vector3(5, 1, 1.09961)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.010498, 0.5354, 0.131165)
+size = Vector3(8.02783, 3.9292, 0.683228)

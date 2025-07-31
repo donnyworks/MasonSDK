@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwlksdfugc01x"]
+
+[ext_resource type="Script" uid="uid://qtpodmfqij8l" path="res://scripts/idc_engine/maploadtest/level_loader.gd" id="1_uw6w0"]
+[ext_resource type="Script" uid="uid://cronfu54606pk" path="res://scripts/idc_engine/maploadtest/levelenv.gd" id="2_pphnj"]
+
+[node name="IdcLevelLoader" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uw6w0")
+
+[node name="FileDialog" type="FileDialog" parent="."]
+auto_translate_mode = 1
+title = "Open a File"
+position = Vector2i(20, 85)
+size = Vector2i(610, 325)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+filters = PackedStringArray("*.dwlf;TB3D Scene File")
+
+[node name="env_maploader" type="Node" parent="."]
+script = ExtResource("2_pphnj")
+metadata/_custom_type_script = "uid://cronfu54606pk"
+
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

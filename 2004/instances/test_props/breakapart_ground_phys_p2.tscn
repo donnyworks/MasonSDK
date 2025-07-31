@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbweyu4w21xh4"]
+
+[ext_resource type="PackedScene" uid="uid://c1s07sl6ufool" path="res://instances/test_props/breakapart_ground_p2.tscn" id="1_lkf5j"]
+
+[sub_resource type="GDScript" id="GDScript_xjdye"]
+resource_name = "test"
+script/source = "extends RigidBody3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body is RigidBody3D and body != self:
+		#sleeping = false
+		#freeze = false
+		pass
+	pass # Replace with function body.
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbfwi"]
+size = Vector3(9.99658, 1, 2.39185)
+
+[node name="breakapart_ground_phys" type="RigidBody3D"]
+sleeping = true
+freeze = true
+script = SubResource("GDScript_xjdye")
+
+[node name="CSGBox3D3" parent="." instance=ExtResource("1_lkf5j")]
+use_collision = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170898, 0, -0.00866699)
+shape = SubResource("BoxShape3D_gbfwi")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.109892, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170898, 0, -0.00866699)
+shape = SubResource("BoxShape3D_gbfwi")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

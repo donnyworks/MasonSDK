@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn4vijf46jr1l"]
+
+[ext_resource type="Script" uid="uid://t6gktte1wkdl" path="res://scripts/base/player.gd" id="1_ca28f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_o73vn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q7070"]
+size = Vector3(1.21069, 2.36304, 1.10754)
+
+[node name="Player" type="CharacterBody3D"]
+process_mode = 3
+script = ExtResource("1_ca28f")
+inputs = {
+"backward": "s",
+"forward": "w",
+"jump": "j",
+"left": "a",
+"right": "d"
+}
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+far = 267.19
+
+[node name="firepoint" type="Node3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.654331, -0.7, -0.968517)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D/firepoint"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+target_position = Vector3(0, 0, -100)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CylinderShape3D_o73vn")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0306396, -0.0872803, 0.0166626)
+shape = SubResource("BoxShape3D_q7070")
+
+[node name="hud" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="savebox" type="Label" parent="hud"]
+visible = false
+layout_mode = 0
+offset_left = 527.0
+offset_top = 456.0
+offset_right = 640.0
+offset_bottom = 479.0
+text = "Saving Game..."
+
+[node name="death" type="Control" parent="hud"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="hud/death"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.856494, 3.65794e-06, 8.66354e-07, 0.721569)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

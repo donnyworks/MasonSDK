@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://0mwvy31q3b0o"]
+
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_xp0jb"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ufjwe"]
+
+[sub_resource type="Sky" id="Sky_6tu3h"]
+sky_material = SubResource("ProceduralSkyMaterial_ufjwe")
+
+[sub_resource type="Environment" id="Environment_a2j8j"]
+background_mode = 2
+sky = SubResource("Sky_6tu3h")
+
+[node name="TestOecontent" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_a2j8j")
+
+[node name="Player" parent="." instance=ExtResource("1_xp0jb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 1, 100)

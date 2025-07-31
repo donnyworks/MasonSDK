@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd2i78uxoftl4"]
+
+[ext_resource type="Script" uid="uid://0sm4surqirkw" path="res://scripts/aperture/teleportvolume.gd" id="1_gijtj"]
+
+[node name="Teleportvolume" type="Area3D"]
+script = ExtResource("1_gijtj")

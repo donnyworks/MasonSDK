@@ -1,0 +1,88 @@
+[gd_scene load_steps=3 format=3 uid="uid://b613dktheykjq"]
+
+[ext_resource type="Script" uid="uid://cnfgs5hawp5ch" path="res://scripts/aperture/prop_portal_sliding_door.gd" id="1_k8q0q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_37t5h"]
+size = Vector3(1.96313, 3.38519, 0.542908)
+
+[node name="prop_portal_sliding_door" type="Node3D"]
+script = ExtResource("1_k8q0q")
+
+[node name="frame" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2.98023e-08, -1, 0, 1, 2.98023e-08, 0, 3.72529e-09, 0.125)
+use_collision = true
+radius = 2.0
+height = 0.75
+sides = 32
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="frame"]
+operation = 2
+radius = 1.87891
+height = 0.75
+sides = 32
+
+[node name="CSGBox3D" type="CSGBox3D" parent="frame/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1.9502)
+operation = 2
+size = Vector3(5, 1, 1.09961)
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0194092, 0)
+operation = 2
+radius = 2.83545
+height = 0.647705
+sides = 32
+
+[node name="CSGBox3D" type="CSGBox3D" parent="frame/CSGCylinder3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1.9502)
+operation = 2
+size = Vector3(5, 1, 1.09961)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="frame"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1.9502)
+operation = 2
+size = Vector3(5, 1, 1.09961)
+
+[node name="doorhalf1" type="CharacterBody3D" parent="."]
+
+[node name="doorhalf1" type="CSGCylinder3D" parent="doorhalf1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -5.9815e-09, 0.136841)
+radius = 2.0
+height = 0.676514
+sides = 16
+
+[node name="CSGBox3D" type="CSGBox3D" parent="doorhalf1/doorhalf1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1.9502)
+operation = 2
+size = Vector3(5, 1, 1.09961)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="doorhalf1/doorhalf1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0, 0)
+operation = 2
+size = Vector3(3, 1, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorhalf1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.984009, 0.282867, 0.121979)
+shape = SubResource("BoxShape3D_37t5h")
+
+[node name="doorhalf2" type="CharacterBody3D" parent="."]
+
+[node name="doorhalf1" type="CSGCylinder3D" parent="doorhalf2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -5.9815e-09, 0.136841)
+radius = 2.0
+height = 0.676514
+sides = 16
+
+[node name="CSGBox3D" type="CSGBox3D" parent="doorhalf2/doorhalf1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5.96046e-08, 1.9502)
+operation = 2
+size = Vector3(5, 1, 1.09961)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="doorhalf2/doorhalf1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+operation = 2
+size = Vector3(3, 1, 5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="doorhalf2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.01599, 0.282867, 0.121979)
+shape = SubResource("BoxShape3D_37t5h")

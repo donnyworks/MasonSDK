@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlda6onsvre0g"]
+
+[sub_resource type="GDScript" id="GDScript_ttx30"]
+resource_name = "breaker"
+script/source = "extends Area3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+func _on_body_entered(body: Node3D) -> void:
+	if body is RigidBody3D and body != get_parent():
+		get_parent().sleeping = false
+		get_parent().freeze = false
+		pass
+	pass # Replace with function body.
+"
+
+[node name="Breaker3D" type="Area3D"]
+script = SubResource("GDScript_ttx30")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3lydi5jxphai"]
+
+[ext_resource type="Script" uid="uid://dl7qla06w01s4" path="res://scripts/idc_engine/showcase_general/door_open.gd" id="1_fiv4a"]
+
+[node name="DoorCollider" type="Area3D"]
+script = ExtResource("1_fiv4a")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,85 @@
+[gd_scene load_steps=4 format=3 uid="uid://djdaawhtgqskb"]
+
+[sub_resource type="Animation" id="Animation_pisaa"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGSphere3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.008367, 3.45412, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGSphere3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 3.14159)]
+}
+
+[sub_resource type="Animation" id="Animation_bbbvd"]
+resource_name = "roof_broken"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CSGSphere3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.99, 2.98, 5, 5.98, 7.02, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.008367, 3.45412, 0), Vector3(0.008367, 2.36258, 0), Vector3(0.008367, 3.43704, 0), Vector3(0.008367, 3.43704, 0), Vector3(0.008367, 0.0506332, 0), Vector3(0.008367, 0.0506332, 0), Vector3(0.008367, 3.4975, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CSGSphere3D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.99, 2.98, 5, 5.98, 6.25, 6.46667, 6.62667, 6.77, 6.86667, 7.02, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 3.14159), Vector3(0, 0, 3.14159), Vector3(0, 0, 3.14159), Vector3(0, 0, 3.14159), Vector3(0, 0, 3.14159), Vector3(0, 0, 2.95231), Vector3(0, 0, 2.94088), Vector3(0, 0, 3.0375), Vector3(0, 0, 3.13985), Vector3(0, 0, 3.14159), Vector3(0, 0, 3.14159), Vector3(0, 0, 3.14159)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pisaa"]
+_data = {
+&"RESET": SubResource("Animation_pisaa"),
+&"roof_broken": SubResource("Animation_bbbvd")
+}
+
+[node name="RoofBroken01" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0, 0, 1, 0.008367, 1.89765, 0)
+height = 3.55884
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(-1, -2.53518e-06, 0, 2.53518e-06, -1, 0, 0, 0, 1, 0.008367, 3.45412, 0)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGSphere3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.98121e-08, 1.59711, 0)
+radius = 0.42334
+height = 3.55884
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGSphere3D/CSGCylinder3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.93522e-08, 1.85446, 0)
+size = Vector3(2, 0.163, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pisaa")
+}

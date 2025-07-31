@@ -1,0 +1,24 @@
+				DonnyWorks Assets And Scripts License
+						Version 1, July 2000
+
+				Copyright (C) 2000 DonnyWorks Systems
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+
+				DONNYWORKS ASSETS AND SCRIPTS LICENSE
+	TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION
+
+	0. Give credit where credit is due. When using the DWAASL,
+inherently implying a usage of DonnyWorks System's game files, please place some
+where obvious that some, or all assets and content are copyright DonnyWorks Sys-
+-tems.
+
+	1. Do not use DonnyWorks Systems assets or scripts for the purpose of inapp-
+-ropriate content, (eg. NSFW, 18+, etc...)
+
+	2. DonnyWorks content and scripts, including this licence document are subj-
+-ect to change, and may change at any moment. Using DonnyWorks content and/or s-
+-cripts, inherently implies an acceptance of this simple fact, and the potential
+deprecation and/or change of content and scripts, and how it is up to the us-
+-er to update their version of the software accordingly.

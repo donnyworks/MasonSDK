@@ -1,0 +1,25 @@
+[gd_scene load_steps=7 format=3 uid="uid://dkpikbxex5uek"]
+
+[ext_resource type="Script" uid="uid://birurxl0cmmm5" path="res://scripts/idc_engine/officecomplex/officecomplex_maze_manager.gd" id="1_uax4w"]
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_vq6ve"]
+[ext_resource type="PackedScene" uid="uid://el7ccsxc686x" path="res://instances/officecomplex/generated/1.tscn" id="2_a0aw5"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sfmcv"]
+
+[sub_resource type="Sky" id="Sky_wbbkt"]
+sky_material = SubResource("ProceduralSkyMaterial_sfmcv")
+
+[sub_resource type="Environment" id="Environment_h2h5b"]
+background_mode = 2
+sky = SubResource("Sky_wbbkt")
+
+[node name="IdcOfficecomplex" type="Node3D"]
+script = ExtResource("1_uax4w")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_h2h5b")
+
+[node name="Player" parent="." instance=ExtResource("1_vq6ve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="officecomplex_rangen01" parent="." instance=ExtResource("2_a0aw5")]

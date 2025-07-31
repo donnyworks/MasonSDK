@@ -1,0 +1,69 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1s07sl6ufool"]
+
+[ext_resource type="Texture2D" uid="uid://bbdqc3i66tj6s" path="res://icon.svg" id="1_l4hxd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jmf1k"]
+albedo_texture = ExtResource("1_l4hxd")
+uv1_triplanar = true
+
+[node name="CSGBox3D3" type="CSGBox3D"]
+use_collision = true
+size = Vector3(10, 1, 2.41711)
+material = SubResource("StandardMaterial3D_jmf1k")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D3" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D4" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 3, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D5" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 4, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -4, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D10" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -3, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D8" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGPolygon3D9" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+operation = 2
+use_collision = true
+size = Vector3(10, 1, 2.41711)
+material = SubResource("StandardMaterial3D_jmf1k")
