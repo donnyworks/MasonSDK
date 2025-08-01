@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp5pat27y6uwc"]
+
+[ext_resource type="Script" uid="uid://ssnkollttgj0" path="res://scripts/aperture/geldecal.gd" id="1_8cvd8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nmuto"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8cvd8"]
+size = Vector3(1, 0.0942383, 1)
+
+[node name="Geldecal" type="Node3D"]
+script = ExtResource("1_8cvd8")
+
+[node name="CSGSphere3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.4995, 0)
+size = Vector3(1, 0.001, 1)
+material = SubResource("StandardMaterial3D_nmuto")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.452881, 0)
+shape = SubResource("BoxShape3D_8cvd8")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

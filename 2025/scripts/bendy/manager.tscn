@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8up7srdq7w68"]
+
+[ext_resource type="Script" uid="uid://1dyupgg0b346" path="res://scripts/bendy/manager.gd" id="1_onwh1"]
+
+[sub_resource type="Animation" id="Animation_onwh1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("labelbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 146)]
+}
+
+[sub_resource type="Animation" id="Animation_av8j3"]
+resource_name = "popdown"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("labelbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 146)]
+}
+
+[sub_resource type="Animation" id="Animation_gsk3m"]
+resource_name = "popup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("labelbox:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 146), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e8iaa"]
+_data = {
+&"RESET": SubResource("Animation_onwh1"),
+&"popdown": SubResource("Animation_av8j3"),
+&"popup": SubResource("Animation_gsk3m")
+}
+
+[node name="Manager" type="Node"]
+script = ExtResource("1_onwh1")
+
+[node name="labelbox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 146.0
+offset_right = 40.0
+offset_bottom = 186.0
+
+[node name="ColorRect" type="ColorRect" parent="labelbox"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 380.0
+offset_right = 284.0
+offset_bottom = 582.0
+rotation = -0.190241
+color = Color(0.667754, 0.40489, 0, 1)
+
+[node name="title" type="Label" parent="labelbox"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 383.0
+offset_right = 286.0
+offset_bottom = 413.0
+rotation = -0.190241
+theme_override_font_sizes/font_size = 21
+text = "Enable The Ink Machine"
+horizontal_alignment = 1
+
+[node name="objectivetext" type="Label" parent="labelbox"]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 410.0
+offset_right = 278.0
+offset_bottom = 561.0
+rotation = -0.190241
+text = "I think we all know what's
+happening here. You know
+your objective. Complete it."
+autowrap_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e8iaa")
+}

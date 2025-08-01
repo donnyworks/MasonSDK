@@ -1,0 +1,61 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcnvv4ntl5sb5"]
+
+[ext_resource type="PackedScene" uid="uid://5ecsfoqw3kn6" path="res://instances/2004dontuse/exterior/stairs02.tscn" id="1_y8c7k"]
+[ext_resource type="PackedScene" uid="uid://bllaufy630kcw" path="res://instances/2004dontuse/exterior/exteriormodel.tscn" id="2_p6eq2"]
+[ext_resource type="PackedScene" uid="uid://deqrulkhee4qt" path="res://instances/2004dontuse/interior/cotmhall.tscn" id="3_xmvhi"]
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="4_a1gfd"]
+[ext_resource type="PackedScene" uid="uid://dcgtxoxutflcw" path="res://instances/2004dontuse/interior/elevatordoor.tscn" id="5_vh3hl"]
+[ext_resource type="PackedScene" uid="uid://b2doivmpsk0s3" path="res://instances/2004dontuse/interior/elevatorbody.tscn" id="6_sxtcm"]
+[ext_resource type="PackedScene" uid="uid://bcl4gnmj4xt17" path="res://instances/2004dontuse/interior/doorbase.tscn" id="7_55k3m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2gsh"]
+
+[sub_resource type="Sky" id="Sky_y8c7k"]
+sky_material = SubResource("ProceduralSkyMaterial_q2gsh")
+
+[sub_resource type="Environment" id="Environment_n3i0f"]
+background_mode = 2
+sky = SubResource("Sky_y8c7k")
+
+[node name="MovieViewing" type="Node3D"]
+
+[node name="Stairs02" parent="." instance=ExtResource("1_y8c7k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, -26)
+
+[node name="Exteriormodel" parent="." instance=ExtResource("2_p6eq2")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, -2, 22)
+
+[node name="Cotmhall" parent="." instance=ExtResource("3_xmvhi")]
+
+[node name="Cotmhall2" parent="." instance=ExtResource("3_xmvhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n3i0f")
+
+[node name="Player" parent="." instance=ExtResource("4_a1gfd")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11, 0, 14)
+
+[node name="Elevatordoor" parent="." instance=ExtResource("5_vh3hl")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, 0, 13.5)
+
+[node name="Elevatordoor2" parent="." instance=ExtResource("5_vh3hl")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 7, -7, 13.5)
+
+[node name="Elevatorbody" parent="." instance=ExtResource("6_sxtcm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9, 0, 13.5)
+
+[node name="Elevatorbody2" parent="." instance=ExtResource("6_sxtcm")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 9, -7, 13.5)
+
+[node name="Doorbase" parent="." instance=ExtResource("7_55k3m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.138848, 0.341109, 20)
+
+[node name="Doorbase2" parent="." instance=ExtResource("7_55k3m")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.138848, 0.341109, -23)
+
+[node name="Doorbase3" parent="." instance=ExtResource("7_55k3m")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.138848, -6.65889, 20)
+
+[node name="Doorbase4" parent="." instance=ExtResource("7_55k3m")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0.138848, -6.65889, -23)

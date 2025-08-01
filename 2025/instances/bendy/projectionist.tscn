@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://co065r5fbdjq2"]
+
+[ext_resource type="Script" uid="uid://diyml6g2e7xa2" path="res://scripts/bendy/projectionist.gd" id="1_3xhis"]
+
+[node name="Projectionist" type="Node3D"]
+script = ExtResource("1_3xhis")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.018219, -0.0462646, 0)
+operation = 2
+use_collision = true
+size = Vector3(0.713318, 0.907471, 1)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.144623, -0.0462646, 7.11804e-09)
+operation = 2
+use_collision = true
+size = Vector3(0.713318, 0.907471, 1.32568)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0105896, 0.535507, 0.0325623)
+size = Vector3(0.295959, 0.0701599, 0.532776)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0111923, 0.604654, 0.0213394)
+size = Vector3(0.203873, 0.0666122, 0.42482)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0914574, 0.69799, 0.0213394)
+size = Vector3(0.0433426, 0.125412, 0.42482)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0621809, 0.69799, 0.0213394)
+size = Vector3(0.0433426, 0.125412, 0.42482)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0117002, 0.69799, 0.229907)
+size = Vector3(0.191105, 0.125412, 0.0190506)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0117002, 0.69799, -0.180764)
+size = Vector3(0.191105, 0.125412, 0.0190506)
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00817871, 0.728392, 0.124235)
+radius = 0.115723
+height = 0.0842285
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.00817871, 0.79603, -0.0832361)
+radius = 0.115723
+height = 0.0842285
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.713104, -0.193761)
+
+[node name="SubViewport" type="SubViewport" parent="."]

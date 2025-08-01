@@ -1,0 +1,81 @@
+[gd_scene load_steps=7 format=3 uid="uid://def2sv00h34oo"]
+
+[ext_resource type="Script" uid="uid://bnfamofljkpdg" path="res://scripts/idc_engine/officecomplex/ocgenerated.gd" id="1_gibuf"]
+[ext_resource type="Material" uid="uid://dbaw7nrqqhag" path="res://materials/dev/dev_wall.tres" id="2_ydibo"]
+[ext_resource type="Script" uid="uid://vmyd24dsm1dc" path="res://scripts/base/trigger_base.gd" id="3_ygwpc"]
+[ext_resource type="Script" uid="uid://pfkeauqij0wj" path="res://scripts/idc_engine/officecomplex/officegenerator.gd" id="4_qe27e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atfp3"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pd7o0"]
+size = Vector3(7, 7, 7)
+
+[node name="officecomplex_rangen02" type="Node3D"]
+script = ExtResource("1_gibuf")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, -1, 0)
+use_collision = true
+size = Vector3(6, 1, 7)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 3, 0)
+use_collision = true
+size = Vector3(6, 1, 7)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, -4.37114e-08, 1.91069e-15, -1, 1, -4.37114e-08, -4.37114e-08, -3, 2, 0)
+use_collision = true
+size = Vector3(5, 1, 5)
+material = ExtResource("2_ydibo")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, -5.82645e-13, -5.82645e-13, 5.82645e-13, 1, -5.91628e-24, 5.82645e-13, -2.56227e-20, 1, 0.000242217, 0, 1)
+operation = 2
+use_collision = true
+size = Vector3(2, 1, 3)
+material = ExtResource("2_ydibo")
+
+[node name="spawnpoint_01" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="spawnpoint_01"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05176e-05, 1.00391, -3)
+size = Vector3(1.9931, 3.00781, 1)
+material = SubResource("StandardMaterial3D_atfp3")
+
+[node name="spawnpoint_04" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="spawnpoint_04"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.05176e-05, 1.00391, 3)
+size = Vector3(1.9931, 3.00781, 1)
+material = SubResource("StandardMaterial3D_atfp3")
+
+[node name="spawnpoint_02" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="spawnpoint_02"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.00003, 1.00391, 0)
+size = Vector3(1.9931, 3.00781, 1)
+material = SubResource("StandardMaterial3D_atfp3")
+
+[node name="spawnpoint_03" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="spawnpoint_03"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.99997, 1.00391, 0)
+size = Vector3(1.9931, 3.00781, 1)
+material = SubResource("StandardMaterial3D_atfp3")
+
+[node name="BaseTrigger" type="Area3D" parent="."]
+script = ExtResource("3_ygwpc")
+
+[node name="sD" type="CollisionShape3D" parent="BaseTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("BoxShape3D_pd7o0")
+
+[node name="logic_idc_officegenerator" type="Node" parent="."]
+script = ExtResource("4_qe27e")

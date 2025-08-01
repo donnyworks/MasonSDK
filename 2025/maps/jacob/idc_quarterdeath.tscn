@@ -1,0 +1,123 @@
+[gd_scene load_steps=10 format=3 uid="uid://dhxcob6r81ui3"]
+
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_gxoqw"]
+[ext_resource type="AudioStream" uid="uid://bpghuhs0dvlum" path="res://sound/vo/transit/test001.wav" id="2_82bmv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_iihd8"]
+
+[sub_resource type="Sky" id="Sky_1yhrb"]
+sky_material = SubResource("ProceduralSkyMaterial_iihd8")
+
+[sub_resource type="Environment" id="Environment_cokxk"]
+background_mode = 2
+sky = SubResource("Sky_1yhrb")
+
+[sub_resource type="GDScript" id="GDScript_vu8ie"]
+resource_name = "tracktrain"
+script/source = "extends RigidBody3D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	apply_central_force(Vector3.FORWARD + Vector3.ONE*transform.basis)
+	pass
+"
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nabqv"]
+size = Vector3(5, 0.001, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_00qsc"]
+size = Vector3(5, 0.001, 2.51025)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_buk33"]
+size = Vector3(5, 0.001, 2.59424)
+
+[node name="QUARTER-DEATH" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cokxk")
+
+[node name="Player" parent="." instance=ExtResource("1_gxoqw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.54, 1, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+script = SubResource("GDScript_vu8ie")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000963539, 0)
+size = Vector3(5, 0.001, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.31963, 0)
+size = Vector3(5, 0.001, 3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.40423, 1.49049)
+size = Vector3(5, 0.001, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1.40423, -1.50951)
+size = Vector3(5, 0.001, 3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(2.98023e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 2.98023e-08, -8.88178e-16, -2.5, 1.40423, -0.00950584)
+size = Vector3(5, 0.001, 3)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RigidBody3D/CSGBox3D5"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.64698e-23, 0, -3.88235e-23, 1, -0.00537112, -0.18143, 0.0501709)
+operation = 2
+size = Vector3(2.67871, 1.19123, 1.47046)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="RigidBody3D"]
+transform = Transform3D(2.98023e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, 2.98023e-08, -8.88178e-16, 2.5, 1.40423, -0.0095059)
+size = Vector3(5, 0.001, 3)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="RigidBody3D/CSGBox3D6"]
+transform = Transform3D(1, 0, 0, 0, 1, -2.64698e-23, 0, -3.88235e-23, 1, -0.00537112, -0.18143, 0.0501709)
+operation = 2
+size = Vector3(2.67871, 1.19123, 1.47046)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000836968, 0)
+shape = SubResource("BoxShape3D_nabqv")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.33263, 0)
+shape = SubResource("BoxShape3D_nabqv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.00084, 1.49728)
+shape = SubResource("BoxShape3D_nabqv")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 1.00084, -1.50272)
+shape = SubResource("BoxShape3D_nabqv")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, 2.49996, 1.24571, 0.0791708)
+shape = SubResource("BoxShape3D_00qsc")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -2.50004, 1.20372, 0.0791708)
+shape = SubResource("BoxShape3D_buk33")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.01478, 0)
+stream = ExtResource("2_82bmv")
+volume_db = -50.286
+autoplay = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, -0.576577, 0.0380859)
+use_collision = true
+size = Vector3(12, 1, 2.89844)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.984445, 0, 0.175693, 0, 1, 0, -0.175693, 0, 0.984445, -10.6213, -0.576577, 0.596925)
+use_collision = true
+size = Vector3(6.82745, 1, 2.84192)

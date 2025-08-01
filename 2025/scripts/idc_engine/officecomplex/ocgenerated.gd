@@ -1,0 +1,2 @@
+extends Node3D
+class_name point_officecomplex_rangen_object

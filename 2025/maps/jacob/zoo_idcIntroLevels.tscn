@@ -1,0 +1,100 @@
+[gd_scene load_steps=14 format=3 uid="uid://dde4stv0tynii"]
+
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_tlbjw"]
+[ext_resource type="PackedScene" uid="uid://c1s07sl6ufool" path="res://instances/test_props/breakapart_ground_p2.tscn" id="2_7wbpj"]
+[ext_resource type="PackedScene" uid="uid://kw7s10nrv7e3" path="res://instances/test_props/breakapart_ground_phys.tscn" id="3_8wmb7"]
+[ext_resource type="PackedScene" uid="uid://dbweyu4w21xh4" path="res://instances/test_props/breakapart_ground_phys_p2.tscn" id="4_m5e8e"]
+[ext_resource type="PackedScene" uid="uid://dlda6onsvre0g" path="res://instances/triggers/breaker_3d.tscn" id="5_xsllp"]
+[ext_resource type="Texture2D" uid="uid://lmy84pfhgi3b" path="res://ph_door.png" id="6_alyxi"]
+[ext_resource type="Material" uid="uid://dbaw7nrqqhag" path="res://materials/dev/dev_wall.tres" id="7_medp7"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kt1i0"]
+
+[sub_resource type="Sky" id="Sky_4k1hg"]
+sky_material = SubResource("ProceduralSkyMaterial_kt1i0")
+
+[sub_resource type="Environment" id="Environment_o3i3p"]
+background_mode = 2
+sky = SubResource("Sky_4k1hg")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nx8ws"]
+size = Vector3(2.888, 0.213, 2)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bcxso"]
+shading_mode = 0
+albedo_texture = ExtResource("6_alyxi")
+uv1_scale = Vector3(1, -1, 1)
+texture_filter = 0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fe4db"]
+size = Vector3(2, 2.92682, 1)
+
+[node name="Gametest01" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_o3i3p")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(100, 1, 100)
+
+[node name="Player" parent="." instance=ExtResource("1_tlbjw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+quakemode = true
+
+[node name="CSGBox3D3" parent="." instance=ExtResource("2_7wbpj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.62552, 9.53674e-07, -13.0294)
+
+[node name="breakapart_ground_phys" parent="." instance=ExtResource("3_8wmb7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.80201, 0.5, -13.2665)
+
+[node name="breakapart_ground_phys2" parent="." instance=ExtResource("4_m5e8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6847, 0.5, -12.9569)
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(0.996324, -0.0856604, 0, 0.0856604, 0.996324, 0, 0, 0, 1, -0.14895, 1.5608, -7)
+sleeping = true
+freeze = true
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="RigidBody3D2"]
+transform = Transform3D(0.999279, 0.0379692, 0, -0.0379692, 0.999279, 0, 0, 0, 1, 0, 0, 0)
+size = Vector3(2.882, 0.097, 2)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="RigidBody3D2"]
+transform = Transform3D(0.999279, 0.037969, 0, -0.037969, 0.999279, 0, 0, 0, 1, 0.0856605, 0.996326, 1.06445)
+size = Vector3(2.882, 0.097, 0.128906)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="RigidBody3D2"]
+transform = Transform3D(0.999279, 0.037969, 0, -0.037969, 0.999279, 0, 0, 0, 1, 0.0856605, 0.996326, -1.0504)
+size = Vector3(2.882, 0.097, 0.128906)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000549316, -0.000827789, 0)
+shape = SubResource("BoxShape3D_nx8ws")
+
+[node name="Breaker3D" parent="RigidBody3D2" instance=ExtResource("5_xsllp")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2/Breaker3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000549316, -0.000827789, 0)
+shape = SubResource("BoxShape3D_nx8ws")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(-4.34288e-08, 0.556557, 0.83081, 4.96191e-09, 0.83081, -0.556557, -1, -2.00482e-08, -3.88427e-08, 5.6273, 1.0009, -4.9978)
+sleeping = true
+freeze = true
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="RigidBody3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0879326, -0.024704)
+size = Vector3(2.00439, 3.00342, 0.775024)
+material = SubResource("StandardMaterial3D_bcxso")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+transform = Transform3D(1, -1.06915e-15, 0, 6.88339e-15, 1, -5.26544e-22, 2.20268e-13, -5.15857e-23, 1, -0.00422907, 0.033783, -4.76837e-07)
+shape = SubResource("BoxShape3D_fe4db")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -0.5)
+use_collision = true
+size = Vector3(1, 2, 2)
+material = ExtResource("7_medp7")

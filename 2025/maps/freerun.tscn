@@ -1,0 +1,183 @@
+[gd_scene load_steps=6 format=3 uid="uid://b4a6mmec30uur"]
+
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_ln6vn"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_kaw85"]
+
+[sub_resource type="Sky" id="Sky_tj580"]
+sky_material = SubResource("ProceduralSkyMaterial_kaw85")
+
+[sub_resource type="Environment" id="Environment_kcwnl"]
+background_mode = 2
+sky = SubResource("Sky_tj580")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pmll"]
+size = Vector3(5, 1, 1)
+
+[node name="Freerun" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_kcwnl")
+
+[node name="Player" parent="." instance=ExtResource("1_ln6vn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.515911, -2.5)
+use_collision = true
+size = Vector3(5, 1, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.515911, -13.5)
+use_collision = true
+size = Vector3(5, 1, 4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.515911, -26.5)
+use_collision = true
+size = Vector3(5, 1, 10)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.5159, -27)
+use_collision = true
+size = Vector3(5, 1, 45)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -14.5159, -63.5)
+use_collision = true
+size = Vector3(5, 1, 14)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(0.75, 0.433013, 0.5, -0.5, 0.866025, 0, -0.433013, -0.25, 0.866025, -4, -14.5159, -83.756)
+use_collision = true
+size = Vector3(5, 1, 11)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.515911, -43.5)
+size = Vector3(5, 1, 10)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, -7.70261, -31.5)
+size = Vector3(5, 1, 15.4263)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, -2.4509, -38.5)
+size = Vector3(5, 1, 4.92285)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -7.45321, -19.3813)
+size = Vector3(5, 1, 28)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, -2.45117, -35.2509)
+size = Vector3(5, 1, 8.08447)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -3)
+double_sided = false
+text = "Welcome to freerun! There are NO CHECKPOINTS.
+For the first few jumps, you will not be able to sprint.
+Controls are:
+W - forward S - backward
+A - left D - right
+Use mouse to look
+Control to sprint, Shift to crouch, Space to jump"
+vertical_alignment = 0
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44.0039)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="Label3D4" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44.0046)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="Label3D5" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44.0084)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="Label3D6" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44.0101)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="Label3D7" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44.014)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="Label3D8" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44.0147)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="Label3D9" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12, -44.0186)
+double_sided = false
+outline_render_priority = 0
+modulate = Color(1, 0, 0, 1)
+text = "Welcome to the real Freerun.
+RUN.
+RUN.
+RUN."
+vertical_alignment = 0
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.553199, -16)
+freeze = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="RigidBody3D"]
+size = Vector3(5, 1, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("BoxShape3D_5pmll")

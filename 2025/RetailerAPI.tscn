@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dey5wj0iw1qm1"]
+
+[ext_resource type="Script" uid="uid://bhb70c5mgewvq" path="res://RetailerAPIDummy.gd" id="1_w7w58"]
+
+[node name="RetailerAPI" type="Node"]
+script = ExtResource("1_w7w58")
+
+[node name="request_get_user_owns" type="HTTPRequest" parent="."]
+
+[connection signal="request_completed" from="request_get_user_owns" to="." method="UserOwnageResult"]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://duy8lukj18s10"]
+
+[node name="ApertureRaisedPlatform" type="Node3D"]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+use_collision = true
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.84229, 0)
+use_collision = true
+radius = 0.428711

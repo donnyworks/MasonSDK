@@ -1,0 +1,149 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcgtxoxutflcw"]
+
+[ext_resource type="Script" uid="uid://cggwer31a56kn" path="res://scripts/base/logic_animation_trigger.gd" id="1_2arwb"]
+[ext_resource type="Script" uid="uid://vmyd24dsm1dc" path="res://scripts/base/trigger_base.gd" id="2_6f7xw"]
+[ext_resource type="Script" uid="uid://bkknngoogpm41" path="res://scripts/base/logic_binary.gd" id="3_dcfc0"]
+[ext_resource type="Script" uid="uid://dux6nt22kjxy6" path="res://scripts/base/logic_relay.gd" id="4_2r2xt"]
+
+[sub_resource type="Animation" id="Animation_4bj26"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rdoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ldoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_21u63"]
+resource_name = "elevclose"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rdoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5), Vector3(0, 0, -0.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ldoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5), Vector3(0, 0, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_wke5b"]
+resource_name = "elevopen"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("rdoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -0.5), Vector3(0, 0, -1.5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ldoor:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0.5), Vector3(0, 0, 1.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1s3x4"]
+_data = {
+&"RESET": SubResource("Animation_4bj26"),
+&"elevclose": SubResource("Animation_21u63"),
+&"elevopen": SubResource("Animation_wke5b")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wke5b"]
+size = Vector3(1, 3, 2)
+
+[node name="Elevatordoor" type="Node3D"]
+
+[node name="ldoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.5)
+use_collision = true
+size = Vector3(0.115, 3, 1)
+
+[node name="rdoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.5)
+use_collision = true
+size = Vector3(0.115, 3, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1s3x4")
+}
+
+[node name="animtrig" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("1_2arwb")
+player = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://cggwer31a56kn"
+
+[node name="BaseTrigger" type="Area3D" parent="." node_paths=PackedStringArray("output")]
+script = ExtResource("2_6f7xw")
+output = NodePath("logic_binary")
+trigger_type = 1
+metadata/_custom_type_script = "uid://vmyd24dsm1dc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseTrigger"]
+shape = SubResource("BoxShape3D_wke5b")
+
+[node name="logic_binary" type="Node" parent="BaseTrigger" node_paths=PackedStringArray("offstate", "onstate", "parent_trigger")]
+script = ExtResource("3_dcfc0")
+offstate = NodePath("../close")
+onstate = NodePath("../open")
+parent_trigger = NodePath("..")
+metadata/_custom_type_script = "uid://bkknngoogpm41"
+
+[node name="open" type="Node" parent="BaseTrigger"]
+script = ExtResource("4_2r2xt")
+toFire = {
+NodePath("../../animtrig"): "elevopen"
+}
+metadata/_custom_type_script = "uid://dux6nt22kjxy6"
+
+[node name="close" type="Node" parent="BaseTrigger"]
+script = ExtResource("4_2r2xt")
+toFire = {
+NodePath("../../animtrig"): "elevclose"
+}
+metadata/_custom_type_script = "uid://dux6nt22kjxy6"

@@ -1,0 +1,2 @@
+extends OmniLight3D
+class_name idc_point_light

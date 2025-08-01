@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt7snheufpx3p"]
+
+[ext_resource type="PackedScene" uid="uid://ij3mhc4c3ubu" path="res://instances/level_loader/loadingui.tscn" id="1_gf4kl"]
+
+[node name="Loadingscreen" type="Node3D"]
+
+[node name="Loadingui" parent="." instance=ExtResource("1_gf4kl")]

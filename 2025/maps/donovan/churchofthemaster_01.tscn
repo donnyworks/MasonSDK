@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://uevg2lvguyx8"]
+
+[ext_resource type="PackedScene" uid="uid://deqrulkhee4qt" path="res://instances/2004dontuse/interior/cotmhall.tscn" id="1_233xn"]
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_2647f"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2gsh"]
+
+[sub_resource type="Sky" id="Sky_tj580"]
+sky_material = SubResource("ProceduralSkyMaterial_q2gsh")
+
+[sub_resource type="Environment" id="Environment_n3i0f"]
+background_mode = 2
+sky = SubResource("Sky_tj580")
+
+[node name="MovieViewing" type="Node3D"]
+
+[node name="Cotmhall" parent="." instance=ExtResource("1_233xn")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n3i0f")
+
+[node name="Player" parent="." instance=ExtResource("1_2647f")]

@@ -1,0 +1,133 @@
+[gd_scene load_steps=9 format=3 uid="uid://dylsyw4jqkd4k"]
+
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_e7fyq"]
+[ext_resource type="VideoStream" uid="uid://bxh1cr6nmw5im" path="res://movies/2025-05-06-20-14-16.ogv" id="2_e7fyq"]
+
+[sub_resource type="GDScript" id="GDScript_a32tp"]
+resource_name = "mv"
+script/source = "extends Node3D
+var image1 := preload(\"res://icon.svg\").get_image()
+var bewung := image1
+
+func _process(delta):
+	bewung = $mvtexture.get_texture().get_image()
+	$projector.light_projector = $projector.light_projector.create_from_image(bewung)
+	if not $mvtexture/VideoStreamPlayer.is_playing(): $mvtexture/VideoStreamPlayer.play()
+"
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q2gsh"]
+
+[sub_resource type="Sky" id="Sky_tj580"]
+sky_material = SubResource("ProceduralSkyMaterial_q2gsh")
+
+[sub_resource type="Environment" id="Environment_n3i0f"]
+background_mode = 2
+sky = SubResource("Sky_tj580")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vui7e"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_e7fyq"]
+
+[node name="MovieViewing" type="Node3D"]
+script = SubResource("GDScript_a32tp")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n3i0f")
+
+[node name="Player" parent="." instance=ExtResource("1_e7fyq")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, -12.5)
+use_collision = true
+size = Vector3(17, 1, 4)
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7, -1)
+use_collision = true
+size = Vector3(17, 1, 27)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0.5, -4.5)
+use_collision = true
+size = Vector3(1, 12, 20)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0.5, -4.5)
+use_collision = true
+size = Vector3(1, 12, 20)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 6)
+use_collision = true
+size = Vector3(19, 12, 1)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+operation = 2
+size = Vector3(3, 2, 1)
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 9.5)
+use_collision = true
+size = Vector3(19, 6, 6)
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 3.5, 9.5)
+use_collision = true
+size = Vector3(5, 6, 6)
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.5, 9.5)
+use_collision = true
+size = Vector3(5, 6, 6)
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -15)
+use_collision = true
+size = Vector3(19, 12, 1)
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -14.4075)
+use_collision = true
+size = Vector3(13, 9, 0.001)
+material = SubResource("StandardMaterial3D_vui7e")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4, -8.5)
+use_collision = true
+size = Vector3(17, 1, 4)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, -4.5)
+use_collision = true
+size = Vector3(17, 1, 4)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -0.5)
+use_collision = true
+size = Vector3(17, 1, 4)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 3.5)
+use_collision = true
+size = Vector3(17, 1, 4)
+
+[node name="projector" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.985562, 0.169315, 0, -0.169315, 0.985562, 0, 4.6336, 7)
+light_energy = 16.0
+light_projector = SubResource("ImageTexture_e7fyq")
+shadow_enabled = true
+spot_range = 28.5395
+spot_angle = 16.973
+
+[node name="mvtexture" type="SubViewport" parent="."]
+size = Vector2i(1156, 648)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="mvtexture"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_e7fyq")
+autoplay = true

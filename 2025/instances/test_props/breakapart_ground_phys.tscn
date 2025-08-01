@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://kw7s10nrv7e3"]
+
+[ext_resource type="Script" uid="uid://cxv37wypt1g15" path="res://scripts/idc_engine/showcase_general/breakapart_ground_phys.gd" id="1_knuyh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0q1sg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y6tqw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_viec0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbfwi"]
+size = Vector3(5.02844, 1, 2.39185)
+
+[node name="breakapart_ground_phys" type="RigidBody3D"]
+sleeping = true
+freeze = true
+script = ExtResource("1_knuyh")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+size = Vector3(5, 1, 2.41711)
+material = SubResource("StandardMaterial3D_0q1sg")
+
+[node name="CSGPolygon3D6" type="CSGPolygon3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.50508, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+material = SubResource("StandardMaterial3D_y6tqw")
+
+[node name="CSGPolygon3D10" type="CSGPolygon3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -2.50508, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+material = SubResource("StandardMaterial3D_y6tqw")
+
+[node name="CSGPolygon3D7" type="CSGPolygon3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.505077, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+material = SubResource("StandardMaterial3D_y6tqw")
+
+[node name="CSGPolygon3D8" type="CSGPolygon3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.494923, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+material = SubResource("StandardMaterial3D_y6tqw")
+
+[node name="CSGPolygon3D9" type="CSGPolygon3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1.49492, -0.441246, 1.20174)
+polygon = PackedVector2Array(0, 0, 0.5, 1, 1, 0)
+depth = 1.79
+material = SubResource("StandardMaterial3D_y6tqw")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGBox3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+operation = 2
+use_collision = true
+size = Vector3(10, 1, 2.41711)
+material = SubResource("StandardMaterial3D_viec0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.48578, 0, -0.00866699)
+shape = SubResource("BoxShape3D_gbfwi")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59636, 0.109892, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00170898, 0, -0.00866699)
+shape = SubResource("BoxShape3D_gbfwi")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

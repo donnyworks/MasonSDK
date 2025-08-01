@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwkdsvafgc2m"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iudxe"]
+albedo_color = Color(0.550553, 0.366279, 5.77569e-07, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_axfd2"]
+albedo_color = Color(0.818559, 0.552729, 1.54018e-06, 1)
+
+[node name="Jds" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+use_collision = true
+size = Vector3(5.615, 1.5, 0.28)
+material = SubResource("StandardMaterial3D_iudxe")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0541065, -0.00197601, 0.362013)
+use_collision = true
+size = Vector3(4.59198, 0.914413, 0.28)
+material = SubResource("StandardMaterial3D_iudxe")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.99317, -7.95711e-09, 0.182037)
+use_collision = true
+radius = 0.67627
+height = 0.100647
+sides = 16
+material = SubResource("StandardMaterial3D_axfd2")
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0068264, -7.95711e-09, 0.182037)
+use_collision = true
+radius = 0.67627
+height = 0.100647
+sides = 16
+material = SubResource("StandardMaterial3D_axfd2")
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2.00683, -7.95711e-09, 0.182037)
+use_collision = true
+radius = 0.67627
+height = 0.100647
+sides = 16
+material = SubResource("StandardMaterial3D_axfd2")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.020778, 0, 0.526076)
+text = "JOEY DREW STUDIOS"
+font_size = 92

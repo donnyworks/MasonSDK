@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbo5mb3oe684"]
+
+[ext_resource type="PackedScene" uid="uid://cc7nnsvfsdmvr" path="res://instances/aperture/prefabs/glasspane.tscn" id="1_lw2ia"]
+
+[node name="TestchamberObservationBase" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.416504, -1)
+use_collision = true
+size = Vector3(8, 1, 3)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59795, -1)
+use_collision = true
+size = Vector3(8, 1, 3)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 1.59795, -1)
+use_collision = true
+size = Vector3(1, 3, 3)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.5, 1.59795, -1)
+use_collision = true
+size = Vector3(1, 3, 3)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58086, -2.6156)
+use_collision = true
+size = Vector3(8, 3, 0.231201)
+
+[node name="Glasspane" parent="." instance=ExtResource("1_lw2ia")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00424053, 1.66593, 0.458876)

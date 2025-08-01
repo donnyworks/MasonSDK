@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://4yvf23hrrw86"]
+
+[ext_resource type="Script" uid="uid://b0wlwby2ktg5u" path="res://scripts/aperture/scriptextension.gd" id="1_ii1tj"]
+
+[node name="Generic" type="Area3D"]
+script = ExtResource("1_ii1tj")
+metadata/_custom_type_script = "uid://vmyd24dsm1dc"

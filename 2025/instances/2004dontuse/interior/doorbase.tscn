@@ -1,0 +1,329 @@
+[gd_scene load_steps=11 format=3 uid="uid://bcl4gnmj4xt17"]
+
+[ext_resource type="Script" uid="uid://cggwer31a56kn" path="res://scripts/base/logic_animation_trigger.gd" id="1_7ip31"]
+[ext_resource type="Script" uid="uid://vmyd24dsm1dc" path="res://scripts/base/trigger_base.gd" id="2_fu621"]
+[ext_resource type="Script" uid="uid://bkknngoogpm41" path="res://scripts/base/logic_binary.gd" id="3_41vyu"]
+[ext_resource type="Script" uid="uid://dux6nt22kjxy6" path="res://scripts/base/logic_relay.gd" id="4_7nenh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ip31"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_es1lo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ldoor:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("rdoor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ldoor/weirdPushyThingL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.147614, -0.262987, -0.0375735)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("rdoor/weirdPushyThingR:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.147614, -0.258362, -0.0510621)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ldoor:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("rdoor:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1)]
+}
+
+[sub_resource type="Animation" id="Animation_7ip31"]
+resource_name = "elevclose"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ldoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1, 0, 2), Vector3(0, 0, 1), Vector3(0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ldoor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 1.5708, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ldoor/weirdPushyThingL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0583392, -0.262987, -0.0375733), Vector3(0.147614, -0.262987, -0.0375733)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("rdoor/weirdPushyThingR:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.0583392, -0.262987, -0.0375733), Vector3(0.147614, -0.262987, -0.0375733)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("rdoor:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1, 0, -2), Vector3(-1, 0, -2), Vector3(0, 0, -1), Vector3(0, 0, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("rdoor:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(0, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0vm0b"]
+resource_name = "elevopen"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ldoor:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.01, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 1), Vector3(0, 0, 1), Vector3(-0.51, 0, 1.34991), Vector3(-1, 0, 2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ldoor:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 1.5708, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ldoor/weirdPushyThingL:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.147614, -0.262987, -0.0375733), Vector3(0.0583392, -0.262987, -0.0375733)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("rdoor/weirdPushyThingR:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.147614, -0.262987, -0.0375733), Vector3(0.0583392, -0.262987, -0.0375733)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("rdoor:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -1), Vector3(0, 0, -1), Vector3(-1, 0, -2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("rdoor:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8mly"]
+_data = {
+&"RESET": SubResource("Animation_es1lo"),
+&"elevclose": SubResource("Animation_7ip31"),
+&"elevopen": SubResource("Animation_0vm0b")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s0o7f"]
+size = Vector3(2, 3.64746, 4.00391)
+
+[node name="Doorbase" type="Node3D"]
+
+[node name="ldoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+use_collision = true
+size = Vector3(0.115, 3.73294, 2)
+
+[node name="weirdPushyThingL" type="CSGBox3D" parent="ldoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147614, -0.262987, -0.0375735)
+size = Vector3(0.164612, 0.172668, 1.65637)
+material = SubResource("StandardMaterial3D_7ip31")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="ldoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7754, -0.0375819)
+operation = 2
+size = Vector3(1, 1.63464, 1.58643)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="ldoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08382, -0.0375819)
+operation = 2
+size = Vector3(1, 1.20355, 1.58643)
+
+[node name="rdoor" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+use_collision = true
+size = Vector3(0.115, 3.73294, 2)
+
+[node name="weirdPushyThingR" type="CSGBox3D" parent="rdoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147614, -0.258362, -0.0510621)
+size = Vector3(0.164612, 0.172668, 1.62842)
+material = SubResource("StandardMaterial3D_7ip31")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="rdoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7754, -0.0375819)
+operation = 2
+size = Vector3(1, 1.63464, 1.58643)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="rdoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.08382, -0.0375819)
+operation = 2
+size = Vector3(1, 1.20355, 1.58643)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j8mly")
+}
+
+[node name="animtrig" type="Node" parent="." node_paths=PackedStringArray("player")]
+script = ExtResource("1_7ip31")
+player = NodePath("../AnimationPlayer")
+metadata/_custom_type_script = "uid://cggwer31a56kn"
+
+[node name="BaseTrigger" type="Area3D" parent="." node_paths=PackedStringArray("output")]
+script = ExtResource("2_fu621")
+output = NodePath("logic_binary")
+trigger_type = 1
+metadata/_custom_type_script = "uid://vmyd24dsm1dc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.0372585, 0.0078125)
+shape = SubResource("BoxShape3D_s0o7f")
+
+[node name="logic_binary" type="Node" parent="BaseTrigger" node_paths=PackedStringArray("offstate", "onstate", "parent_trigger")]
+script = ExtResource("3_41vyu")
+offstate = NodePath("../close")
+onstate = NodePath("../open")
+parent_trigger = NodePath("..")
+metadata/_custom_type_script = "uid://bkknngoogpm41"
+
+[node name="open" type="Node" parent="BaseTrigger"]
+script = ExtResource("4_7nenh")
+toFire = {
+NodePath("../../animtrig"): "elevopen"
+}
+metadata/_custom_type_script = "uid://dux6nt22kjxy6"
+
+[node name="close" type="Node" parent="BaseTrigger"]
+script = ExtResource("4_7nenh")
+toFire = {
+NodePath("../../animtrig"): "elevclose"
+}
+metadata/_custom_type_script = "uid://dux6nt22kjxy6"

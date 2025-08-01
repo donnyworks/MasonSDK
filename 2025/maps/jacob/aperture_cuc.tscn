@@ -1,0 +1,704 @@
+[gd_scene load_steps=28 format=3 uid="uid://b5lslw23rcdya"]
+
+[ext_resource type="PackedScene" uid="uid://cn4vijf46jr1l" path="res://instances/player.tscn" id="1_6fy0e"]
+[ext_resource type="PackedScene" uid="uid://b613dktheykjq" path="res://instances/aperture/prop_portal_sliding_door.tscn" id="1_t3ven"]
+[ext_resource type="PackedScene" uid="uid://bsdlw7llr2s7q" path="res://instances/aperture/portal_door_punchout.tscn" id="2_vcuaf"]
+[ext_resource type="Texture2D" uid="uid://dramwlbj86k1y" path="res://materials/aperture/inactive.png" id="3_21meo"]
+[ext_resource type="Script" uid="uid://b0dudo1xtawhs" path="res://scripts/base/logic_setsprite.gd" id="4_3of0f"]
+[ext_resource type="Script" uid="uid://cvi7p7fsrodcj" path="res://scripts/base/logic_randomfire.gd" id="4_21meo"]
+[ext_resource type="Script" uid="uid://0sm4surqirkw" path="res://scripts/aperture/teleportvolume.gd" id="5_81wj5"]
+[ext_resource type="Texture2D" uid="uid://cc8tejnaci5i8" path="res://materials/aperture/active.png" id="5_t3ven"]
+[ext_resource type="Script" uid="uid://dux6nt22kjxy6" path="res://scripts/base/logic_relay.gd" id="7_3of0f"]
+[ext_resource type="PackedScene" uid="uid://cbo5mb3oe684" path="res://instances/aperture/prefabs/testchamber_observation_base.tscn" id="9_s4tra"]
+[ext_resource type="PackedScene" uid="uid://b5cukq5coviod" path="res://instances/aperture/prefabs/guiderails.tscn" id="10_31n7p"]
+[ext_resource type="Script" uid="uid://dpy4afo37w8u2" path="res://scripts/triggers/trigger_hurt.gd" id="10_572t8"]
+[ext_resource type="Script" uid="uid://cggwer31a56kn" path="res://scripts/base/logic_animation_trigger.gd" id="11_co1l4"]
+[ext_resource type="Script" uid="uid://vmyd24dsm1dc" path="res://scripts/base/trigger_base.gd" id="12_572t8"]
+[ext_resource type="PackedScene" uid="uid://cevnerq36uvix" path="res://instances/aperture/prefabs/animated/signage.tscn" id="15_2eunk"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_hl308"]
+
+[sub_resource type="Sky" id="Sky_t3ven"]
+sky_material = SubResource("ProceduralSkyMaterial_hl308")
+
+[sub_resource type="Environment" id="Environment_c7pqb"]
+background_mode = 2
+sky = SubResource("Sky_t3ven")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6fy0e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t3ven"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uimlu"]
+size = Vector3(7, 6, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hl308"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2eunk"]
+size = Vector3(7.96616, 5.03394, 2.68945)
+
+[sub_resource type="Animation" id="Animation_hc484"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TestchamberObservationBase:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(42.9895, 2.41546, -11.6151)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TestchamberObservationBase:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGBox3D9:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(8, 0, -11.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGBox3D9:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGBox3D6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -2, -11.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGBox3D6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_31n7p"]
+resource_name = "player_arrival"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TestchamberObservationBase:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.01, 2.96667, 3.39, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(42.9895, 2.41546, -11.6151), Vector3(26.9895, 2.41546, -11.6151), Vector3(12.053, 2.41546, -11.6151), Vector3(7.98946, 2.41546, -11.6151), Vector3(-0.0105362, -0.990077, -11.6151)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TestchamberObservationBase:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.37, 3.86667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0), Vector3(1.5708, -1.5708, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CSGBox3D9:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.27, 3.3, 3.32, 3.39, 3.8, 3.96, 5, 7.14, 8.02, 8.55, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(8, 0, -11.5), Vector3(8, 0, -11.5), Vector3(7.85431, 0, -11.5), Vector3(7.72127, 0, -11.5), Vector3(5.81591, 0.212576, -11.5), Vector3(4, -1, -11.5), Vector3(4, -1, -11.5), Vector3(4, -2.83922, -11.5), Vector3(5.62943, -3.02259, -11.5), Vector3(6.78123, -3.02259, -11.5), Vector3(7.69092, -3.09029, -11.5), Vector3(11.356, -29.8227, -11.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CSGBox3D9:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.27, 3.3, 3.32, 3.39, 3.8, 3.96, 5, 7.14, 8.02, 8.55, 10),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, 0.0609294), Vector3(0, 0, 0.0388149), Vector3(0, 0, 0.735242), Vector3(0, 0, 1.5708), Vector3(0, 0, 1.5708), Vector3(0, 0, 1.50573), Vector3(0, 0, 1.50573), Vector3(0, 0, 1.50573), Vector3(0, 0, 1.50573), Vector3(0, 0, -0.977943)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CSGBox3D6:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.8, 3.85, 3.96, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -2, -11.5), Vector3(0, -2, -11.5), Vector3(0, -1.98444, -11.5), Vector3(0, -1.98444, -11.5), Vector3(0, -3.47324, -11.5)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CSGBox3D6:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 3.8, 3.85, 3.96, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0), Vector3(0, 0, -0.0185528), Vector3(0, 0, -0.0185528), Vector3(0, 0, -0.0801979)]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("prop_portal_sliding_door2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["Open"],
+"method": &"fired"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_co1l4"]
+_data = {
+&"RESET": SubResource("Animation_hc484"),
+&"player_arrival": SubResource("Animation_31n7p")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_81wj5"]
+size = Vector3(7, 6, 1)
+
+[node name="ApertureCuc" type="Node3D"]
+
+[node name="prop_portal_sliding_door" parent="." instance=ExtResource("1_t3ven")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154, -4.129)
+
+[node name="prop_portal_sliding_door2" parent="." instance=ExtResource("1_t3ven")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154, -19.129)
+
+[node name="prop_portal_sliding_door3" parent="." instance=ExtResource("1_t3ven")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154, -28.129)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_c7pqb")
+
+[node name="Player" parent="." instance=ExtResource("1_6fy0e")]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+use_collision = true
+size = Vector3(5, 1, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, -11.5)
+use_collision = true
+size = Vector3(15, 1, 14)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, -11.5)
+use_collision = true
+size = Vector3(1, 5, 14)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -11.5)
+use_collision = true
+size = Vector3(1, 5, 14)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4.5, -19)
+use_collision = true
+size = Vector3(1, 4, 1)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 4.5, -19)
+use_collision = true
+size = Vector3(1, 4, 1)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 93.8198, -2.5, 10)
+use_collision = true
+flip_faces = true
+size = Vector3(242.64, 50, 89)
+material = SubResource("StandardMaterial3D_t3ven")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, -19)
+use_collision = true
+size = Vector3(16, 5, 1)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="PortalDoorPunchout" parent="CSGBox3D10" instance=ExtResource("2_vcuaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512936, -0.127133, -0.126616)
+
+[node name="BaseTrigger2" type="Area3D" parent="." node_paths=PackedStringArray("output")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+script = ExtResource("12_572t8")
+output = NodePath("../prop_portal_sliding_door2")
+parameter = "Close"
+metadata/_custom_type_script = "uid://vmyd24dsm1dc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseTrigger2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_uimlu")
+
+[node name="TeleportVolume" type="Area3D" parent="." node_paths=PackedStringArray("DestinationVolume")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26)
+script = ExtResource("5_81wj5")
+DestinationVolume = NodePath("../TeleportVolume2")
+metadata/_custom_type_script = "uid://0sm4surqirkw"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportVolume"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_uimlu")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+use_collision = true
+size = Vector3(7, 5, 1)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="PortalDoorPunchout" parent="CSGBox3D16" instance=ExtResource("2_vcuaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0445832, -0.127133, -0.126616)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 7, -12)
+use_collision = true
+size = Vector3(16, 1, 15)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -4)
+use_collision = true
+size = Vector3(15, 10, 1)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="PortalDoorPunchout" parent="CSGBox3D8" instance=ExtResource("2_vcuaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.63233, -0.126615)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+use_collision = true
+size = Vector3(5, 5, 1)
+material = SubResource("StandardMaterial3D_hl308")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+use_collision = true
+size = Vector3(5, 1, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0.5, 0.5)
+use_collision = true
+size = Vector3(1, 6, 8)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 0)
+use_collision = true
+size = Vector3(1, 6, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.61651e-08, -2, -23.8)
+use_collision = true
+size = Vector3(5, 1, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.61651e-08, 3, -23.8)
+use_collision = true
+size = Vector3(5, 1, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0.5, -23.8)
+use_collision = true
+size = Vector3(1, 6, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0.5, -23.8)
+use_collision = true
+size = Vector3(1, 6, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="prop_portal_sliding_door4" parent="." instance=ExtResource("1_t3ven")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154, 143.485)
+
+[node name="prop_portal_sliding_door5" parent="." instance=ExtResource("1_t3ven")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.154, 152.485)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 152.614)
+use_collision = true
+size = Vector3(16, 5, 1)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="PortalDoorPunchout" parent="CSGBox3D20" instance=ExtResource("2_vcuaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512936, -0.127133, -0.126616)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 143.614)
+use_collision = true
+size = Vector3(16, 5, 1)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="PortalDoorPunchout" parent="CSGBox3D21" instance=ExtResource("2_vcuaf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512936, -0.127133, -0.126616)
+
+[node name="BaseTrigger3" type="Area3D" parent="." node_paths=PackedStringArray("output")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145.614)
+script = ExtResource("12_572t8")
+output = NodePath("../prop_portal_sliding_door4")
+parameter = "Open"
+metadata/_custom_type_script = "uid://vmyd24dsm1dc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseTrigger3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_uimlu")
+
+[node name="TeleportVolume2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 145.614)
+script = ExtResource("5_81wj5")
+isDestination = true
+metadata/_custom_type_script = "uid://0sm4surqirkw"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TeleportVolume2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_uimlu")
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.61651e-08, -2, 147.814)
+use_collision = true
+size = Vector3(5, 1, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -9.61651e-08, 3, 147.814)
+use_collision = true
+size = Vector3(5, 1, 9)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -3, 0.5, 148.179)
+use_collision = true
+size = Vector3(1, 6, 8.27063)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="CSGBox3D25" type="CSGBox3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 3, 0.5, 148.233)
+use_collision = true
+size = Vector3(1, 6, 8.16199)
+material = SubResource("StandardMaterial3D_6fy0e")
+
+[node name="status_door1" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014863, 2.36597, -4.54018)
+texture = ExtResource("3_21meo")
+
+[node name="logic_randomfire" type="Node" parent="status_door1" node_paths=PackedStringArray("entity")]
+script = ExtResource("4_21meo")
+entity = NodePath("../relay_close_door1")
+parameter = "0"
+chance = 5
+metadata/_custom_type_script = "uid://cvi7p7fsrodcj"
+
+[node name="logic_randomfire2" type="Node" parent="status_door1" node_paths=PackedStringArray("entity")]
+script = ExtResource("4_21meo")
+entity = NodePath("../relay_open_door1")
+parameter = "1"
+chance = 10
+metadata/_custom_type_script = "uid://cvi7p7fsrodcj"
+
+[node name="logic_setsprite" type="Node" parent="status_door1" node_paths=PackedStringArray("target")]
+script = ExtResource("4_3of0f")
+sprites = [ExtResource("3_21meo"), ExtResource("5_t3ven")]
+target = NodePath("..")
+metadata/_custom_type_script = "uid://b0dudo1xtawhs"
+
+[node name="relay_open_door1" type="Node" parent="status_door1"]
+script = ExtResource("7_3of0f")
+toFire = {
+NodePath("../logic_setsprite"): "1",
+NodePath("../../prop_portal_sliding_door"): "Open"
+}
+metadata/_custom_type_script = "uid://dux6nt22kjxy6"
+
+[node name="relay_close_door1" type="Node" parent="status_door1"]
+script = ExtResource("7_3of0f")
+toFire = {
+NodePath("../logic_setsprite"): "0",
+NodePath("../../prop_portal_sliding_door"): "Close"
+}
+metadata/_custom_type_script = "uid://dux6nt22kjxy6"
+
+[node name="TestchamberObservationBase" parent="." instance=ExtResource("9_s4tra")]
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 42.9895, 2.41546, -11.6151)
+
+[node name="trigger_hurt" type="Area3D" parent="TestchamberObservationBase"]
+script = ExtResource("10_572t8")
+damage_delt = 2000.0
+damage_type = 3
+trigger_type = 1
+metadata/_custom_type_script = "uid://dpy4afo37w8u2"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestchamberObservationBase/trigger_hurt"]
+transform = Transform3D(1, 0, -1.38911e-12, 0, 1, 0, 1.38911e-12, 0, 1, -0.0501232, 1.58484, 0.155273)
+shape = SubResource("BoxShape3D_2eunk")
+
+[node name="Guiderails" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0374, 7.07935, -11.2557)
+
+[node name="Guiderails2" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.0374, 7.07935, -11.2557)
+
+[node name="Guiderails3" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0374, 7.07935, -11.2557)
+
+[node name="Guiderails4" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.0374, 7.07935, -11.2557)
+
+[node name="Guiderails5" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.0374, 7.07935, -11.2557)
+
+[node name="Guiderails6" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.0374, 7.07935, -11.2557)
+
+[node name="Guiderails19" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.0374, 7.07935, -11.2557)
+
+[node name="Guiderails20" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.0374, 7.07935, -11.2557)
+
+[node name="Guiderails21" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.0374, 7.07935, -11.2557)
+
+[node name="Guiderails22" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 56.0374, 7.07935, -11.2557)
+
+[node name="Guiderails23" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.0374, 7.07935, -11.2557)
+
+[node name="Guiderails24" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.0374, 7.07935, -11.2557)
+
+[node name="Guiderails25" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 71.0374, 7.07935, -11.2557)
+
+[node name="Guiderails26" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.0374, 7.07935, -11.2557)
+
+[node name="Guiderails27" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 81.0374, 7.07935, -11.2557)
+
+[node name="Guiderails28" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 86.0374, 7.07935, -11.2557)
+
+[node name="Guiderails29" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.0374, 7.07935, -11.2557)
+
+[node name="Guiderails30" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 96.0374, 7.07935, -11.2557)
+
+[node name="Guiderails31" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.037, 7.07935, -11.2557)
+
+[node name="Guiderails32" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 106.037, 7.07935, -11.2557)
+
+[node name="Guiderails33" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.037, 7.07935, -11.2557)
+
+[node name="Guiderails34" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 116.037, 7.07935, -11.2557)
+
+[node name="Guiderails35" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 121.037, 7.07935, -11.2557)
+
+[node name="Guiderails36" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 126.037, 7.07935, -11.2557)
+
+[node name="Guiderails37" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 131.037, 7.07935, -11.2557)
+
+[node name="Guiderails38" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 136.037, 7.07935, -11.2557)
+
+[node name="Guiderails39" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 141.037, 7.07935, -11.2557)
+
+[node name="Guiderails40" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.037, 7.07935, -11.2557)
+
+[node name="Guiderails41" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 151.037, 7.07935, -11.2557)
+
+[node name="Guiderails42" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 156.037, 7.07935, -11.2557)
+
+[node name="Guiderails43" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 161.037, 7.07935, -11.2557)
+
+[node name="Guiderails44" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 166.037, 7.07935, -11.2557)
+
+[node name="Guiderails45" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.037, 7.07935, -11.2557)
+
+[node name="Guiderails46" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.037, 7.07935, -11.2557)
+
+[node name="Guiderails47" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 181.037, 7.07935, -11.2557)
+
+[node name="Guiderails48" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 186.037, 7.07935, -11.2557)
+
+[node name="Guiderails49" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 190.037, 7.07935, -11.2557)
+
+[node name="Guiderails50" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 195.037, 7.07935, -11.2557)
+
+[node name="Guiderails51" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 200.037, 7.07935, -11.2557)
+
+[node name="Guiderails52" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 205.037, 7.07935, -11.2557)
+
+[node name="Guiderails53" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 210.037, 7.07935, -11.2557)
+
+[node name="Guiderails54" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 215.037, 7.07935, -11.2557)
+
+[node name="Guiderails55" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.037, 7.07935, -11.2557)
+
+[node name="Guiderails56" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 225.037, 7.07935, -11.2557)
+
+[node name="Guiderails57" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 230.037, 7.07935, -11.2557)
+
+[node name="Guiderails58" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 235.037, 7.07935, -11.2557)
+
+[node name="Guiderails59" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 240.037, 7.07935, -11.2557)
+
+[node name="Guiderails60" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 245.037, 7.07935, -11.2557)
+
+[node name="Guiderails7" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.9626, 7.07935, -11.2557)
+
+[node name="Guiderails8" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9626, 7.07935, -11.2557)
+
+[node name="Guiderails9" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.9626, 7.07935, -11.2557)
+
+[node name="Guiderails10" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.9626, 7.07935, -11.2557)
+
+[node name="Guiderails11" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.9626, 7.07935, -11.2557)
+
+[node name="Guiderails12" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.96263, 7.07935, -11.2557)
+
+[node name="Guiderails13" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.537369, 7.07935, -46.9681)
+
+[node name="Guiderails14" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.537369, 7.07935, -41.9681)
+
+[node name="Guiderails15" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.537369, 7.07935, -36.9681)
+
+[node name="Guiderails16" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.537369, 7.07935, -31.9681)
+
+[node name="Guiderails17" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.537369, 7.07935, -26.9681)
+
+[node name="Guiderails18" parent="." instance=ExtResource("10_31n7p")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.537369, 7.07935, -21.9681)
+
+[node name="player_arrival" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_co1l4")
+}
+
+[node name="logic_animation_trigger" type="Node" parent="player_arrival" node_paths=PackedStringArray("player")]
+script = ExtResource("11_co1l4")
+player = NodePath("..")
+metadata/_custom_type_script = "uid://cggwer31a56kn"
+
+[node name="BaseTrigger" type="Area3D" parent="." node_paths=PackedStringArray("output")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5)
+script = ExtResource("12_572t8")
+output = NodePath("../player_arrival/logic_animation_trigger")
+parameter = "player_arrival"
+trigger_type = 1
+metadata/_custom_type_script = "uid://vmyd24dsm1dc"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BaseTrigger"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.5, 0)
+shape = SubResource("BoxShape3D_81wj5")
+
+[node name="Signage" parent="." instance=ExtResource("15_2eunk")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.45879, 0.709739, -16.3506)
